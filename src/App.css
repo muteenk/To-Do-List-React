@@ -42,7 +42,7 @@ nav .search button:hover{
 
 /* Add Todo input bar  */
 
-.makeToDo{
+.makeToDo form{
   display: flex;
   align-items: center;
   justify-content: center;

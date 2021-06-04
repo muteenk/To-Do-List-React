@@ -1,3 +1,4 @@
+import React, {useState} from 'react'
 import './App.css';
 import Nav from './components/Nav'
 import AddTodo from './components/AddTodo'
@@ -5,16 +6,47 @@ import Todo from './components/Todo'
 import NoTodo from './components/NoTodo'
 
 function App() {
+
+  const [Todo_list, setTodo_list] = useState([
+    {
+      id: 1,
+      Title: "this is a manually entered todo 1"
+    },
+    {
+      id: 2,
+      Title: "this is a manually entered todo 2"
+    },
+    {
+      id: 3,
+      Title: "this is a manually entered todo 3"
+    },
+    {
+      id: 4,
+      Title: "this is a manually entered todo 4"
+    },
+    {
+      id: 5,
+      Title: "this is a manually entered todo 5"
+    },
+    {
+      id: 6,
+      Title: "this is a manually entered todo 6"
+    }
+  ])
+
+
   return (
     <>
       <Nav/>
 
       {/* To Add TODOs  */}
-      <AddTodo/>
+      <AddTodo list={Todo_list} todo_func={setTodo_list} />
 
       <div className="todo-box">
-        <Todo/>
-        <NoTodo/>
+        {
+          // To show todos and no todos 
+          Todo_list.length > 0 ? Todo_list.map(e => {return <Todo data={e} key={e.id} />}) : <NoTodo/> 
+        }
       </div>
     </>
   );
