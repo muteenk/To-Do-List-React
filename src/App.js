@@ -43,6 +43,29 @@ function App() {
   }
 
 
+
+  function editTodo(newTask, todo) {
+    console.log(newTask)
+    console.log(todo)
+    setTodo_list(
+      Todo_list.map( e => {
+        if (e === todo){
+          return{
+            id: todo.id,
+            Title: newTask
+          }
+        }
+        else{
+          return e;
+        }
+      })
+    )
+
+    console.log(Todo_list)
+  }
+
+  
+
   return (
     <>
       <Nav/>
@@ -53,7 +76,7 @@ function App() {
       <div className="todo-box">
         {
           // To show todos and no todos 
-          Todo_list.length > 0 ? Todo_list.map(e => {return <Todo data={e} delete={deleteTodo} key={e.id} />}) : <NoTodo/> 
+          Todo_list.length > 0 ? Todo_list.map(e => {return <Todo data={e} edit={editTodo} delete={deleteTodo} key={e.id} />}) : <NoTodo/> 
         }
       </div>
     </>

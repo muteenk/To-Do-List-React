@@ -12,20 +12,24 @@ const AddTodo = (props) => {
 
         e.preventDefault();
         
-        let noOfTodos = props.list.length;
+        if ( task !== ""){
+            let noOfTodos = props.list.length;
 
-        let newTodo = {
-            id: noOfTodos + 1,
-            Title: task
+            let newTodo = {
+                id: noOfTodos + 1,
+                Title: task
+            }
+    
+            props.todo_func([...props.list, newTodo])
+            
+            setTask("")
         }
-
-        props.todo_func([...props.list, newTodo])
     }
 
     return (
         <div className="makeToDo">
             <form onSubmit={addTodo}>
-                <input type="text" onChange={todoTask} name="AddToDo" placeholder="Enter Task" />
+                <input type="text" onChange={todoTask} name="AddToDo" id="addTask" value={task} placeholder="Enter Task" />
                 <button> Add Task </button>
             </form>
         </div>
