@@ -35,6 +35,14 @@ function App() {
   ])
 
 
+  function deleteTodo(todo) {
+      setTodo_list( 
+        Todo_list.filter( (e) => {
+        return e !== todo
+      }))
+  }
+
+
   return (
     <>
       <Nav/>
@@ -45,7 +53,7 @@ function App() {
       <div className="todo-box">
         {
           // To show todos and no todos 
-          Todo_list.length > 0 ? Todo_list.map(e => {return <Todo data={e} key={e.id} />}) : <NoTodo/> 
+          Todo_list.length > 0 ? Todo_list.map(e => {return <Todo data={e} delete={deleteTodo} key={e.id} />}) : <NoTodo/> 
         }
       </div>
     </>
