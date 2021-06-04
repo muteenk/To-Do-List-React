@@ -7,32 +7,7 @@ import NoTodo from './components/NoTodo'
 
 function App() {
 
-  const [Todo_list, setTodo_list] = useState([
-    {
-      id: 1,
-      Title: "this is a manually entered todo 1"
-    },
-    {
-      id: 2,
-      Title: "this is a manually entered todo 2"
-    },
-    {
-      id: 3,
-      Title: "this is a manually entered todo 3"
-    },
-    {
-      id: 4,
-      Title: "this is a manually entered todo 4"
-    },
-    {
-      id: 5,
-      Title: "this is a manually entered todo 5"
-    },
-    {
-      id: 6,
-      Title: "this is a manually entered todo 6"
-    }
-  ])
+  const [Todo_list, setTodo_list] = useState([])
 
 
   function deleteTodo(todo) {
