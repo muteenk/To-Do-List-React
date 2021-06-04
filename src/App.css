@@ -95,6 +95,11 @@ nav .search button:hover{
   box-sizing: border-box;
 }
 
+.todo-panel .todo h4{
+  width: 80%;
+  box-sizing: border-box;
+}
+
 .todo-panel .todo h3{
   color: red;
 }
