@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './App.css';
 import Nav from './components/Nav'
 import AddTodo from './components/AddTodo'
@@ -7,7 +7,20 @@ import NoTodo from './components/NoTodo'
 
 function App() {
 
-  const [Todo_list, setTodo_list] = useState([])
+  let initTodo;
+
+  if(localStorage.getItem("todos") === null){
+    initTodo = []
+  }
+  else{
+    initTodo = JSON.parse(localStorage.getItem("todos"))
+  }
+
+  const [Todo_list, setTodo_list] = useState(initTodo)
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(Todo_list))
+  }, [Todo_list])
 
 
   function deleteTodo(todo) {
@@ -20,8 +33,6 @@ function App() {
 
 
   function editTodo(newTask, todo) {
-    console.log(newTask)
-    console.log(todo)
     setTodo_list(
       Todo_list.map( e => {
         if (e === todo){
@@ -35,8 +46,6 @@ function App() {
         }
       })
     )
-
-    console.log(Todo_list)
   }
 
   
