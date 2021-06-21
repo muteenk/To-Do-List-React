@@ -2,6 +2,11 @@ import React from 'react'
 
 const Todo = (props) => {
 
+
+    // This is the Todo Component inside the Todo Box
+
+
+    // Called when Edit button is clicked 
     function editThis() {
         
         let edited = prompt("Edit Task", props.data.Title)
